@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product CRUD App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2>Product CRUD Application</h2>
+      <div id="content">Loading...</div>
+    </div>
+    <script>
+      async function loadProducts() {
+        const response = await fetch("/api/products");
+        const products = await response.json();
+        document.getElementById("content").innerHTML = JSON.stringify(
+          products,
+          null,
+          2
+        );
+      }
+      loadProducts();
+    </script>
+  </body>
+</html>
